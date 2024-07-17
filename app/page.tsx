@@ -8,12 +8,18 @@ import Login from '@/components/Login';
 import Register from '@/components/Register';
 import UserPage from '@/components/UserPage';
 import { animateScroll as scroll } from 'react-scroll'; 
+
+interface UserInfo {
+  _id: string;
+  username: string;
+  likedVideos: object[]; 
+}
+
 export default function Home(){
   const [logOrRegister, setLogOrRegister] = useState(true);
   const [showSignInForm, setShowSignInForm] = useState(false);
   const [isAuthenticated, setAuthenticated] = useState(false);
-  const [userInfo, setUserInfo] = useState({_id:'',username:'',likedVideos:[]});
-
+const [userInfo, setUserInfo] = useState<UserInfo>({ _id: '', username: '', likedVideos: [] })
   function handleHome() {
     window.location.reload();
   }
@@ -57,6 +63,8 @@ export default function Home(){
             ))}
           <div className="welcomeDiv bg-[#1c1c24]">
             <Navbar
+              Nav1="Feature"
+              onNav1={() => {}}
               Nav2="Home"
               onNav2={handleHome}
               Nav3="Login/Register"
@@ -64,6 +72,8 @@ export default function Home(){
                 setShowSignInForm(true);
                 scroll.scrollToTop();
               }}
+              Nav4="About"
+              onNav4={() => {}}
             />
             <div className=" px-6 md:px-12 py-4">
               <div className="grid grid-cols-1 md:grid-cols-2">
@@ -88,7 +98,10 @@ export default function Home(){
             onView={() => {
               setShowSignInForm(true);
               scroll.scrollToTop();
+              
             }}
+            sendVideos={()=>""}
+            seed={""}
           />
           <Footer />
         </div>

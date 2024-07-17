@@ -21,7 +21,7 @@ const ViewVideo = ({
     e.preventDefault();
 
     try {
-      const res = await fetch('https://videoplayaserver.cyclic.app/comment', {
+      const res = await fetch('/api/comment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -75,8 +75,11 @@ const ViewVideo = ({
       <div className="grid grid-cols-7 gap-6">
         <div className="allVideos col-span-2 hidden md:block mr-2 h-screen overflow-scroll overflow-x-hidden">
           <p className=" bg-[#1e1e25] mb-2 rounded p-4">More Videos</p>
-          {allVideos?.map((video) => (
-            <div className="card bg-[#1e1e25] my-2 rounded px-2 pb-2">
+          {allVideos?.map((video, index) => (
+            <div
+              className="card bg-[#1e1e25] my-2 rounded px-2 pb-2"
+              key={index}
+            >
               <div className="flex justify-between py-2">
                 <div className="text-sm bg-[#303039] rounded-xl px-2">
                   {' '}

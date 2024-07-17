@@ -51,7 +51,7 @@ const UserPage = ({
   //Add to Likes
   async function handlelike(video) {
     try {
-      const res = await fetch('https://videoplayaserver.cyclic.app/like', {
+      const res = await fetch('/api/like', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

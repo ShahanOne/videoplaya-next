@@ -20,7 +20,7 @@ const Login = ({ userData, onLogin, onCut, onGoToRegister }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('https://videoplayaserver.cyclic.app/login', {
+      const res = await fetch('/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const Login = ({ userData, onLogin, onCut, onGoToRegister }) => {
         .then((data) =>
           data !== 'poop'
             ? userData(data)
-            : window.alert('User not found, please Register or try again')
+            : toast.error('User not found, please Register or try again')
         );
     } catch (err) {
       console.log(err);
@@ -99,7 +99,7 @@ const Login = ({ userData, onLogin, onCut, onGoToRegister }) => {
 
           <p className="authenticateText text-xl mt-4 md:mt-12 py-2">
             {' '}
-            Don't have an account? Register!
+            Don&apos;t have an account? Register!
           </p>
           <button
             className="bg-[#363344] shadow-xl active:translate-y-0.5 text-white text-2xl my-6 p-[1%]  rounded-lg w-[100%] hover:cursor-pointer"

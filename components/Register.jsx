@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const Register = ({ onCut, onGoToLogin }) => {
   const [userName, setUserName] = useState('');
@@ -17,9 +18,9 @@ const Register = ({ onCut, onGoToLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    window.alert('Registered, You Can Login Now');
+    toast.success('Registered, You Can Login Now');
     try {
-      const res = await fetch('https://videoplayaserver.cyclic.app/register', {
+      const res = await fetch('/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

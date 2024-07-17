@@ -20,7 +20,7 @@ const UploadNewVideo = ({ onTap, newUserData, userId }) => {
     onTap();
 
     try {
-      const res = await fetch('https://videoplayaserver.cyclic.app/new-video', {
+      const res = await fetch('/api/new-video', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
