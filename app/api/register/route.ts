@@ -7,12 +7,15 @@ if (!isConnected) {
   isConnected = true;
 }
 
-export async function POST(req:any) {
-  const { username,password} = await req.json();
+export async function POST(req:Request) {
 
   try {
-    const userData = await register(username,password);
-    return NextResponse.json(userData.user);
+     const body = await req.json();
+    const userData = body[0];
+    const { username, password } = userData;
+    console.log(username,password);
+    const user = await register(username,password);
+    return NextResponse.json(user.user);
   } catch (err) {
     return NextResponse.json(
       { error: 'An error occurred while registering user'}

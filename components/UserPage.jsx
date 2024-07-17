@@ -73,7 +73,6 @@ const UserPage = ({
   function newData(data) {
     newUserData(data);
   }
-
   return (
     <>
       {focusedVideo ? (

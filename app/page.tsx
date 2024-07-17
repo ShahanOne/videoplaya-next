@@ -8,7 +8,6 @@ import Login from '@/components/Login';
 import Register from '@/components/Register';
 import UserPage from '@/components/UserPage';
 import { animateScroll as scroll } from 'react-scroll'; 
-
 interface UserInfo {
   _id: string;
   username: string;
@@ -106,6 +105,7 @@ const [userInfo, setUserInfo] = useState<UserInfo>({ _id: '', username: '', like
           <Footer />
         </div>
       )}
-    </div>
+    </div>  
+
   );
 }

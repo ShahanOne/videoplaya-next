@@ -34,7 +34,7 @@ const Login = ({ userData, onLogin, onCut, onGoToRegister }) => {
       })
         .then((res) => res.json())
         .then((data) =>
-          data !== 'poop'
+          !data.error
             ? userData(data)
             : toast.error('User not found, please Register or try again')
         );
