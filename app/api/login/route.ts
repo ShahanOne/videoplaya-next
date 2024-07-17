@@ -14,11 +14,12 @@ export async function POST(req:Request) {
      const body = await req.json();
     const userData = body[0];
     const { username, password } = userData;
-    console.log(username,password);
     
-    const user = await login(username,password);
-    console.log(user);
+    const user = await login(username,password);   
     
+    if (!user) {
+      throw new Error('User not found'); // Handle case where login returns undefined or null
+    } 
     return NextResponse.json(user.user);
   } catch (err) {
     console.log(err);

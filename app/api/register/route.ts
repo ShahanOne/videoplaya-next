@@ -13,7 +13,6 @@ export async function POST(req:Request) {
      const body = await req.json();
     const userData = body[0];
     const { username, password } = userData;
-    console.log(username,password);
     const user = await register(username,password);
     return NextResponse.json(user.user);
   } catch (err) {
